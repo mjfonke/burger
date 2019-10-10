@@ -1,0 +1,10 @@
+.bg {
+    /* The image used */
+    background-image: url("../image/burger.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+  
+    
+  }

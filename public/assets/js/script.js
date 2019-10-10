@@ -1,4 +1,7 @@
+$(document).ready(function() {
+
 $("#submit-btn").on("click", function(event) {
+    console.log("Javascript")
     event.preventDefault();
 
     var newBurger = {
@@ -21,7 +24,6 @@ $(".devour-btn").on("click", function(event) {
     event.preventDefault();
 
     var id = $(this).data("id");
-    var newDevour = $(this).data("newdevour")
 
     var devourStatus = {
         devoured: 1
@@ -35,6 +37,8 @@ $(".devour-btn").on("click", function(event) {
             console.log("Devoured it");
             location.reload();
         }
-    )
+    );
+});
+
 });
 

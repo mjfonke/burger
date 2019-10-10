@@ -30,9 +30,11 @@ function objToSql(ob) {
 
 var orm = {
     selectAll : function (table, cb) {
-        var query = "SELECT * FROM " + table + ";"
-        connection.query(query, function (err, result) {
-            if (err) throw err;
+        var query = "SELECT * FROM ??";
+        connection.query(query, [table], function (err, result) {
+            if (err) {
+                throw err
+            };
             cb(result);
         })
     },
@@ -43,11 +45,11 @@ var orm = {
         query += cols.toString();
         query += ") ";
         query += "VALUES (";
-        query += printQuestionMarks(vals.length);
+        query += "?";
         query += ") ;"
         
-        connection.query(query, vals, function(err, result) {
-            if (err) throw err;
+        connection.query(query, [vals], function(err, result) {
+            if (err) {throw err};
 
             cb(result);
         });
@@ -55,14 +57,14 @@ var orm = {
 
     updateOne : function (table, obj, condition, cb) {
         var query = "UPDATE " + table;
-        query += "SET ";
+        query += " SET ";
         query += objToSql(obj);
         query += " WHERE ";
         query += condition;
 
 
         connection.query(query, function(err, result) {
-            if (err) throw err;
+            if (err) {throw err};
 
             cb(result);
         });
