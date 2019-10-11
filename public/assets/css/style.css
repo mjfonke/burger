@@ -4,7 +4,41 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 700px;
-  
-    
+    height: 500px;
+  }
+
+  #submit-btn {
+    color: rgb(2, 2, 2);
+    background-color: #ffffff;
+    border: 1px solid rgb(3, 3, 3);
+    border-radius: 4px;
+    padding: 0 15px;
+    cursor: pointer;
+    height:32px;
+    font-size:14px;
+    transition: all 0.2s ease-in-out;
+    }
+    #submit-btn:hover {
+    transform: scale(1.1);
+    }
+
+  .devour-btn {
+    color: rgb(8, 8, 8);
+    background-color: rgb(246, 246, 248);
+    border: 1px solid rgb(9, 85, 6);
+    border-radius: 4px;
+    padding: 0 15px;
+    cursor: pointer;
+    height:32px;
+    font-size:14px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .devour-btn:hover {
+    box-shadow: 1px 1px #858686, 2px 2px #858686, 3px 3px #858686;
+    transform: translateX(-3px);
+  }
+
+  .main {
+    text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
   }
