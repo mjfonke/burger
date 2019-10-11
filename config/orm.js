@@ -30,11 +30,11 @@ function objToSql(ob) {
 
 var orm = {
     selectAll : function (table, cb) {
-        var query = "SELECT * FROM ??";
-        connection.query(query, [table], function (err, result) {
+        var query = "SELECT * FROM " + table + ";";
+        connection.query(query, function (err, result) {
             if (err) {
                 throw err
-            };
+            }
             cb(result);
         })
     },
@@ -45,10 +45,12 @@ var orm = {
         query += cols.toString();
         query += ") ";
         query += "VALUES (";
-        query += "?";
-        query += ") ;"
+        query += printQuestionMarks(vals.length);
+        query += ") ";
+
+        console.log(query);
         
-        connection.query(query, [vals], function(err, result) {
+        connection.query(query, vals, function(err, result) {
             if (err) {throw err};
 
             cb(result);
@@ -62,9 +64,12 @@ var orm = {
         query += " WHERE ";
         query += condition;
 
+        console.log(query);
 
         connection.query(query, function(err, result) {
-            if (err) {throw err};
+            if (err) {
+                throw err
+            };
 
             cb(result);
         });
