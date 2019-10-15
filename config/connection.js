@@ -1,7 +1,7 @@
 var mysql = require("mysql");
 var connection;
 
-if(process.env === "production") {
+if(process.env === "prod") {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
     connection = mysql.createConnection({
@@ -12,7 +12,6 @@ if(process.env === "production") {
         database: "burgers_db"
     });
 }
-
 
 connection.connect(function(err) {
     if (err) {
